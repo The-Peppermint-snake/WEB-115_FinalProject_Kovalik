@@ -1,4 +1,4 @@
-# Custom Tournament Bracket Builder
+# Cookie Clicker
 **WEB-115 Final Project Proposal**
 Student: Beatrice Kovalik | Repo: `WEB-115_FinalProject_Kovalik`
 
