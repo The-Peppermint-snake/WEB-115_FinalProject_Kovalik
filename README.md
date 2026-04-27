@@ -30,12 +30,15 @@ The target user is anyone who wants a quick hit of dopamine and likes to do repe
 
 If Statements & Loops
 When the click gives more than a certain amount of cookies a special sound will play. I will also use if statements to show the store to buy the inventory items when the player gains enough money.
+loops will be used to laod in the images of the inventory items
 Event Listeners
 event listeners on the cookie add the cookies to the users inventory on every click
 DOM element creation
 Inventory items will be created and added under an inventory div. 
 Classes
 An inventory item class will allow for me to add lots of inventory items that can be displayed in the users inventory and add benefits because they will all be set up similarly and need common functions like adding multipliers and having a display.
+interval functions
+will be used with the cursers that auto click after x amount of time
 
 ---
 
