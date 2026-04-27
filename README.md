@@ -42,7 +42,7 @@ An inventory item class will allow for me to add lots of inventory items that ca
 ## DLC — Additional Topics
 
 ### JSON & Local Storage
-Local storage will allow the page to be refracted without all of the progress being lost.
+Local storage will allow the page to be refreshed without all of the progress being lost.
 ---
 
 ## Tech Stack
