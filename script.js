@@ -1,13 +1,14 @@
 const cookie = document.getElementById("cookie")
 const inventory = document.getElementById("inventory")
-
-// cookie.addEventListener("click", function() {
-    
-// })
+const cookieCounter = document.getElementById("cookieCounter")
+let totalCookie = localStorage.setItem(cookieStore, 0)
+console.log(localStorage.getItem(cookieStore))
+cookieCounter.innerHTML = "Your total cookies are: " + totalCookie
 
 cookie.addEventListener('click', () => {
-console.log("aioufai")
-  cookie.classList.add('spin');
+    cookie.classList.add('spin');
+    Number(localStorage.getItem(cookieStore)) + 1
+    cookieCounter.innerHTML = "Your total cookies are: " + Number(totalCookie)
 });
 cookie.addEventListener('animationend', ()=>{
 	cookie.classList.remove('spin');
