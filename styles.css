@@ -6,6 +6,13 @@ img {
     padding: 0%;
 }
 
+header {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 img:hover {
     opacity: .9;
 }
@@ -22,4 +29,12 @@ img:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.store {
+  display: inline-block;
+  max-width: 60px;
+  height: auto;
+  margin: auto;
+  padding: 10px;
 }
