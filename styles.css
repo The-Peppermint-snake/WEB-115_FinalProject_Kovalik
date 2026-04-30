@@ -18,7 +18,7 @@ img:hover {
 }
 
 .spin {
-  animation: rotate .2s ease-out;
+  animation: rotate .2s ease-in-out;
 }
 
 @keyframes rotate {
@@ -31,10 +31,44 @@ img:hover {
   }
 }
 
-.store {
+.tooltip {
   display: inline-block;
+  position: relative;
   max-width: 60px;
   height: auto;
   margin: auto;
   padding: 10px;
+  bottom: 100%;
+  left: 65%;
+  cursor: pointer;
+}
+
+.shopImage {
+    display: inline-block;
+  max-width: 60px;
+  height: auto;
+  margin: auto;
+  padding: 10px;
+  bottom: 100%;
+  left: 65%;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 130px;
+  background-color: black;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 65%;
+  /* margin-left: -65px;  */
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
