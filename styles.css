@@ -54,6 +54,13 @@ img:hover {
   cursor: pointer;
 }
 
+.inventoryImage {
+  display: inline-block;
+  max-width: 40px;
+  height: auto;
+  padding: 5px;
+}
+
 .tooltiptext {
   visibility: hidden;
   width: 130px;

@@ -1,19 +1,12 @@
 //  to-do
-//     -interval functions for the cursors that update total cookies
-//     -fancy css for the cursors 
-//         -want them to surrond the cookie Picture 
-//             -static at first maybe try to make them move
-//      -update reset button to include inventory
+//      -interval functions for the cursors that update total cookies
 //      -for loop after page refresh to add inventory items back
-//      -add inventory to local storage
-
 
 const cookie = document.getElementById("cookie");
 const inventoryDiv = document.getElementById("inventoryDiv");
 const cookieCounter = document.getElementById("cookieCounter");
 const resetButton = document.getElementById("reset");
 const shopDiv = document.getElementById("store")
-let inventory = []
 
 import {shopArray} from "./shopItems.js";
 for (let i = 0; i < shopArray.length; i++) {
@@ -29,11 +22,15 @@ for (let i = 0; i < shopArray.length; i++) {
         if (newCookie < 0) {
             window.alert("You need more cookies!")
         } else {
-            inventory.push(shopArray[i])
-            let inventoryStore;
-            inventoryStore = localStorage.setItem("inventory", JSON.stringify(inventory));
-            let totalCookie = localStorage.setItem("cookies", newCookie)
+            let inventory = JSON.parse(localStorage.getItem("inventory"))
+            inventory.push(shopArray[i].id)
+            localStorage.setItem("inventory", JSON.stringify(inventory));
+            localStorage.setItem("cookies", newCookie)
             cookieCounter.innerHTML = "Your total cookies are: " + newCookie;
+            let iImg = document.createElement("img");
+            iImg.src = shopArray[i].img;
+            iImg.classList.add("inventoryImage")
+            inventoryDiv.appendChild(iImg)
         }
     })
     newText.classList.add("tooltiptext")
@@ -46,17 +43,29 @@ for (let i = 0; i < shopArray.length; i++) {
 cookieCounter.innerHTML = "Your total cookies are: " + Number(localStorage.getItem("cookies"))
 
 resetButton.addEventListener("click", function() {
-    localStorage.setItem("cookies", 0)
-    localStorage.setItem("inventory", [])
+    localStorage.setItem("cookies", 1000000)
+    localStorage.setItem("inventory", JSON.stringify([]))
     cookieCounter.innerHTML = "Your total cookies are: " + Number(localStorage.getItem("cookies"))
+    window.location.reload();
 })
 
 cookie.addEventListener('click', function() {
     cookie.classList.add('spin');
-    let newNum = Number(localStorage.getItem("cookies")) + 1
-    let totalCookie = localStorage.setItem("cookies", newNum)
+    let newNum = Number(localStorage.getItem("cookies")) + 1;
+    let totalCookie = localStorage.setItem("cookies", newNum);
     cookieCounter.innerHTML = "Your total cookies are: " + newNum;
 });
+
 cookie.addEventListener('animationend', function() {
 	cookie.classList.remove('spin');
 });
+
+window.addEventListener("load", function() {
+    let iArray = JSON.parse(localStorage.getItem("inventory"));
+    for (let i = 0; i < iArray.length; i++) {
+        let iImg = document.createElement("img");
+        iImg.src = shopArray[iArray[i]].img;
+        iImg.classList.add("inventoryImage")
+        inventoryDiv.appendChild(iImg)
+    }
+})
