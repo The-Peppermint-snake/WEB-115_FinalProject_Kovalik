@@ -31,7 +31,10 @@ for (let i = 0; i < shopArray.length; i++) {
             iImg.src = shopArray[i].img;
             iImg.classList.add("inventoryImage")
             inventoryDiv.appendChild(iImg)
-        }
+            setInterval(function () {let newNum = Number(localStorage.getItem("cookies")) + 1;
+                                    localStorage.setItem("cookies", newNum);
+                                    cookieCounter.innerHTML = "Your total cookies are: " + newNum;}, shopArray[i].interval)
+    }
     })
     newText.classList.add("tooltiptext")
     newText.innerHTML = shopArray[i].description
@@ -39,11 +42,10 @@ for (let i = 0; i < shopArray.length; i++) {
     newDiv.appendChild(newText)
     shopDiv.appendChild(newDiv)
 }
-
 cookieCounter.innerHTML = "Your total cookies are: " + Number(localStorage.getItem("cookies"))
 
 resetButton.addEventListener("click", function() {
-    localStorage.setItem("cookies", 1000000)
+    localStorage.setItem("cookies", 0)
     localStorage.setItem("inventory", JSON.stringify([]))
     cookieCounter.innerHTML = "Your total cookies are: " + Number(localStorage.getItem("cookies"))
     window.location.reload();
@@ -67,5 +69,9 @@ window.addEventListener("load", function() {
         iImg.src = shopArray[iArray[i]].img;
         iImg.classList.add("inventoryImage")
         inventoryDiv.appendChild(iImg)
+        setInterval(function () {let newNum = Number(localStorage.getItem("cookies")) + 1;
+                        localStorage.setItem("cookies", newNum);
+                        cookieCounter.innerHTML = "Your total cookies are: " + newNum;}, shopArray[i].interval)
+
     }
 })
